@@ -4,12 +4,12 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
   end
   get '/' do
-    erb :index
+    erb :recipes
   end
 
   get '/recipes' do
     @recipe = Recipe.all
-    erb :recipes
+    erb :index
   end
 
 
