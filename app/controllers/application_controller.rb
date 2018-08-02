@@ -1,4 +1,4 @@
-
+Rack::MethodOverride
 class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/recipes/:id' do
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
     erb :show
   end
 
@@ -41,7 +41,7 @@ class ApplicationController < Sinatra::Base
 
 
   delete '/recipes/:id/delete' do
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
     @recipe.destroy
     redirect to '/recipes'
   end
