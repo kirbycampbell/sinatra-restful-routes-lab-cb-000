@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    redirect to '/recipes'
+    erb :index
   end
 
   get '/recipes' do
